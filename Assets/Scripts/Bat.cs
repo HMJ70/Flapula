@@ -9,6 +9,13 @@ public class Bat : MonoBehaviour
     public float gravity = -9.8f;
     public float str = 5f;
 
+    private void OnEnable()
+    {
+        Vector3 position = transform.position;
+        position.y = 0;
+        transform.position = position;
+        direction = Vector3.zero;
+    }
     private void Start()
     {
         InvokeRepeating(nameof(animate), 0.15f, 0.15f);
