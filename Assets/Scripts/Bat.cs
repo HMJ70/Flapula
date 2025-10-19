@@ -44,4 +44,16 @@ public class Bat : MonoBehaviour
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Obstacle")
+        {
+            FindFirstObjectByType<GManager>().gameover();
+        }
+        else if(collision.gameObject.tag == "Points")
+        {
+            FindFirstObjectByType<GManager>().pluspoints();
+        }
+    }
 }

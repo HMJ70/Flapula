@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 424470892244681460}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4922255715714115574}
   m_Layer: 0
   m_Name: PassThroughObstacle
-  m_TagString: Untagged
+  m_TagString: Points
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 5538076041463224392}
   m_Layer: 0
   m_Name: top
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -399,3 +399,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102abedf691d4f74a888784adf9447cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spikes
+  speed: 5
