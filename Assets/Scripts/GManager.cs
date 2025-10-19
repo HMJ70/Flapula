@@ -45,5 +45,7 @@ public class GManager : MonoBehaviour
         gameoverbruh.SetActive(true);
         playbutton.SetActive(true);
         pause();
+
     }
+
 }
