@@ -73,28 +73,12 @@ public class Bat : MonoBehaviour
         if (audioSource == null || flapSound == null)
             return;
 
-        audioSource.pitch = Random.Range(0.9f, 1.2f);
-
-        audioSource.volume = 0.8f;
-
+        audioSource.Stop();
+        audioSource.pitch = Random.Range(0.7f, 0.9f);
+        audioSource.volume = 0.6f; 
         audioSource.PlayOneShot(flapSound);
-
-        StartCoroutine(FadeFlapSound());
     }
 
-    private System.Collections.IEnumerator FadeFlapSound()
-    {
-        float fadeTime = 0.2f;
-        float startVolume = audioSource.volume;
-
-        while (fadeTime > 0f)
-        {
-            fadeTime -= Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(0f, startVolume, fadeTime / 0.2f);
-            yield return null;
-        }
-
-        audioSource.volume = startVolume;
-    }
+   
 
 }
