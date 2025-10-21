@@ -16,11 +16,14 @@ public class GManager : MonoBehaviour
     public GameObject playbutton;
     public GameObject gameoverbruh;
     public GameObject getready;
-    //public AudioSource audioSource;
-    //public AudioClip newHighScoreClip;
+    public AudioClip scoreSound;
+    public AudioClip hitSound;
+    public AudioSource audioSource;
+    public AudioSource gameSource;
+    public AudioClip newHighScoreClip;
     private void Awake()
     {
-        PlayerPrefs.DeleteKey("HighScore");
+        //PlayerPrefs.DeleteKey("HighScore");  reset score spaya ga ribet
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         
 
@@ -57,10 +60,17 @@ public class GManager : MonoBehaviour
     {
         points++;
         pointstext.text = points.ToString();
-        
+        if (gameSource != null && scoreSound != null)
+        {
+            gameSource.pitch = Random.Range(0.95f, 1.05f);
+            gameSource.PlayOneShot(scoreSound);
+            gameSource.pitch = 1f;
+        }
     }
     public void gameover()
     {
+        if (audioSource != null && hitSound != null)
+            audioSource.PlayOneShot(hitSound);
         gameoverbruh.SetActive(true);
         playbutton.SetActive(true);
         pause();
@@ -76,8 +86,8 @@ public class GManager : MonoBehaviour
             if (newHighScoreText != null)
                 newHighScoreText.gameObject.SetActive(true);
 
-            //if (audioSource != null && newHighScoreClip != null)
-            //    audioSource.PlayOneShot(newHighScoreClip);
+            if (audioSource != null && newHighScoreClip != null)
+                audioSource.PlayOneShot(newHighScoreClip);
             StartCoroutine(ShowNewHighScorePopup());
         }
         else

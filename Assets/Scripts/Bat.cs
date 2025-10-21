@@ -10,6 +10,7 @@ public class Bat : MonoBehaviour
     public float str = 5f;
     public AudioSource audioSource;
     public AudioClip flapSound;
+
     private void OnEnable()
     {
         Vector3 position = transform.position;
