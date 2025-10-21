@@ -30,6 +30,17 @@ public class Bat : MonoBehaviour
             spriteindex = 0;
         }
         spriterenderer.sprite = sprites[spriteindex];
+        PolygonCollider2D collider = GetComponent<PolygonCollider2D>();
+        if (collider != null && spriterenderer.sprite != null)
+        {
+            collider.pathCount = spriterenderer.sprite.GetPhysicsShapeCount();
+            for (int i = 0; i < collider.pathCount; i++)
+            {
+                var points = new System.Collections.Generic.List<Vector2>();
+                spriterenderer.sprite.GetPhysicsShape(i, points);
+                collider.SetPath(i, points.ToArray());
+            }
+        }
     }
     private void Awake()
     {

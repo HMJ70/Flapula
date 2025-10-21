@@ -761,8 +761,8 @@ MonoBehaviour:
   sprites:
   - {fileID: -697763020151794088, guid: ad0d64d3bb83e584e9e35e7a35077008, type: 3}
   - {fileID: -8072220183094876539, guid: ad0d64d3bb83e584e9e35e7a35077008, type: 3}
-  gravity: -9
-  str: 5
+  gravity: -20
+  str: 8.5
   audioSource: {fileID: 1589254970}
   flapSound: {fileID: 8300000, guid: 97f187b1c84e1ff46a629a7a9515c5b3, type: 3}
 --- !u!60 &662819955
